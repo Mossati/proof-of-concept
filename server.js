@@ -48,32 +48,41 @@ app.get('/', function (request, response) {
 
 // POST route voor de index pagina
 app.post('/', function (request, response) {
-    fetchJson(f_fabrique_art_objects).then((arts) => {
-        // Maak een nieuwe variable aan
-        let newIds = []
-        let imagesOnUpdate = 100
-        // Check of de variablen minder dan 100 items bevat
-        while (newIds.length < imagesOnUpdate) {
-            // Haal een random nummer op gebasseerd op de lengte van de gefetchde arts
-            const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
-            // Push de random ID naar de newIds variable
-            newIds.push(randomArt.id)
-        }
-        // Voeg de newIds array toe aan de imageArray
-        imageArray = [...imageArray, ...newIds]
+    const formType = request.body.formType;
 
-        if (request.body.enhanced) {
-            // Render de index pagina
-            fetchJson(f_fabrique_art_objects).then((arts) => {
-                const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
-                response.render('index', { arts: selectedArts, images: imageArray })
+    if (formType === "form1") {
+        fetchJson(f_fabrique_art_objects).then((arts) => {
+            console.log("POST met:" + formType)
+            // Maak een nieuwe variable aan
+            let newIds = []
+            let imagesOnUpdate = 100
+            // Check of de variablen minder dan 100 items bevat
+            while (newIds.length < imagesOnUpdate) {
+                // Haal een random nummer op gebasseerd op de lengte van de gefetchde arts
+                const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
+                // Push de random ID naar de newIds variable
+                newIds.push(randomArt.id)
+            }
+            // Voeg de newIds array toe aan de imageArray
+            imageArray = [...imageArray, ...newIds]
+    
+            if (request.body.enhanced) {
+                // Render de index pagina
+                fetchJson(f_fabrique_art_objects).then((arts) => {
+                    const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
+                    response.render('index', { arts: selectedArts, images: imageArray })
+            })
+            } else {
+                // Redirect terug naar de index pagina
+                response.redirect('/')
+            }
+    
         })
-        } else {
-            // Redirect terug naar de index pagina
-            response.redirect('/')
-        }
-
-    })
+    } else {
+        fetchJson(f_fabrique_art_objects).then((arts) => {
+            console.log("POST met:" + formType)
+        })
+    }
 })
 
 // Stel het poortnummer in waar express op moet gaan luisteren

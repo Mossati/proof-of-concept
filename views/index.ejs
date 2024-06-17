@@ -16,6 +16,7 @@
                 <p>NO IMAGES FOUND</p>
             <% } else { %>
                 <form method="post" action="/" class="form-canvas">
+                    <input type="hidden" name="formType" value="form1">
                     <ul class="canvas-list">
                         <% arts.forEach((art, index) => { %>
                             <li class="canvas-item" 
@@ -47,6 +48,7 @@
         <!-- ========================================= -->
         <div class="section-filter">
             <form action="/" method="post">
+                <input type="hidden" name="formType" value="form2">
                 <!-- ========================================= -->
                 <!-- Filter options -->
                 <!-- ========================================= -->

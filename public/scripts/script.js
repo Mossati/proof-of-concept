@@ -53,7 +53,6 @@ imageArts.forEach((art, index) => {
         imageToolTips[index].classList.toggle('hidden');
     });
 });
-
 // ============================================
 // Submit button hidden
 // ============================================
