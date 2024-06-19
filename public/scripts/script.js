@@ -116,40 +116,40 @@ function formEnhancement() {
 // =========================================================================
 // Enhancement: Filter
 // =========================================================================
-    const forms = document.querySelectorAll('form');
+    // const forms = document.querySelectorAll('form');
     
-    forms.forEach((form, index) => {
-        console.log(index);
-        form.addEventListener('submit', function(event) {
-            // Voeg een extra eigenschap aan de formulierdata toe
-            const data = new FormData(this);
-            data.append('enhanced', true);
+    // forms.forEach((form, index) => {
+    //     console.log(index);
+    //     form.addEventListener('submit', function(event) {
+    //         // Voeg een extra eigenschap aan de formulierdata toe
+    //         const data = new FormData(this);
+    //         data.append('enhanced', true);
     
-            fetch(this.action, {
-                // De POST method ophalen
-                method: this.method,
-                // De data van de form meegeven aan de body
-                body: new URLSearchParams(data)
-            }).then(function(response) {
-                // Als de server een antwoord geeft, krijgen we een stream terug
-                // We willen hiervan de text gebruiken, wat in dit geval HTML teruggeeft
-                return response.text();
+    //         fetch(this.action, {
+    //             // De POST method ophalen
+    //             method: this.method,
+    //             // De data van de form meegeven aan de body
+    //             body: new URLSearchParams(data)
+    //         }).then(function(response) {
+    //             // Als de server een antwoord geeft, krijgen we een stream terug
+    //             // We willen hiervan de text gebruiken, wat in dit geval HTML teruggeeft
+    //             return response.text();
     
-            }).then(function(responseHTML) {
-                // Maak tijdelijk DOM element aan
-                const tempDOM = document.createElement('div');
-                // Plaats de responseHTML in de tijdelijke DOM
-                tempDOM.innerHTML = responseHTML;
-                // Selecteer het canvas gedeelte uit de tijdelijke DOM
-                const responseDOM = tempDOM.querySelector('.canvas-list');
+    //         }).then(function(responseHTML) {
+    //             // Maak tijdelijk DOM element aan
+    //             const tempDOM = document.createElement('div');
+    //             // Plaats de responseHTML in de tijdelijke DOM
+    //             tempDOM.innerHTML = responseHTML;
+    //             // Selecteer het canvas gedeelte uit de tijdelijke DOM
+    //             const responseDOM = tempDOM.querySelector('.canvas-list');
     
-                // log
-                console.log(responseDOM);
-                console.log(document.querySelector('canvas-list'));
-                // Selecteer het canvas gedeelte uit de DOM en vervang het
-                document.querySelector('.canvas-list').innerHTML = responseDOM.innerHTML;
-                //console.log(responseHTML);
-            });
-            event.preventDefault();
-        });
-    });
+    //             // log
+    //             console.log(responseDOM);
+    //             console.log(document.querySelector('canvas-list'));
+    //             // Selecteer het canvas gedeelte uit de DOM en vervang het
+    //             document.querySelector('.canvas-list').innerHTML = responseDOM.innerHTML;
+    //             //console.log(responseHTML);
+    //         });
+    //         event.preventDefault();
+    //     });
+    // });

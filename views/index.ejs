@@ -13,7 +13,10 @@
         <!-- ========================================= -->
         <div class="section-canvas">
             <% if (arts.length <= 0) { %>
-                <p>NO IMAGES FOUND</p>
+                <div class="empty-canvas">
+                    <span dir="rtl">لم يتم العثور على صور</span>
+                    <p dir="ltr">NO IMAGES FOUND</p>
+                </div>
             <% } else { %>
                 <form method="post" action="/" class="form-canvas">
                     <input type="hidden" name="formType" value="form1">
@@ -78,7 +81,7 @@
                 <!-- Search box -->
                 <!-- ========================================= -->
                 <div class="search-box">
-                    <input type="text" placeholder="SEARCH THE COLLECTION">
+                    <input type="text" name="searchBox" placeholder="SEARCH THE COLLECTION">
                     <button type="submit" aria-label="search"></button>
                 </div>
             </form>
