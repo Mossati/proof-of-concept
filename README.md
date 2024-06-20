@@ -21,6 +21,10 @@ Een project met als core functionality de infinite canvas, een canvas met afbeel
 de kunstwerk collectie van Qatar Museums.
 Door de te scrollen door de canvas heen worden er nieuwe afbeeldingen ingeladen waardoor je
 oneindig door kan scrollen.
+De website kan je hier bekijken: [Infinite Canvas](proof-of-concept-zite.onrender.com)
+
+![schets](https://github.com/Mossati/proof-of-concept/assets/47789542/67beb7df-bf9b-44a6-8099-4d484204cfd7)
+
 
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
@@ -42,10 +46,14 @@ Node.js/Express is gebruikt voor het fetchen van data uit Directus (```GET```) e
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
-Voor het gebruik van dit project is het nodig om Node.js./Express te installeren in je eigen project.
-Gebruik het volgende om Node.js te installeren:
+### Vereisten
+- Node.js
+- npm (Node Package Manager, meestal meegeleverd met Node.js)
 
-```NPM Install```
+### Stappen
+1. Clone het project (dit kan door recht boven op clonen te drukken)
+2. Installeer Node Package Manager (NPM) door in de terminal dit te typen: ```npm install```
+3. Om de server te starten kan je gebruik maken van: ```npm start```
 
 ## Bronnen
 
