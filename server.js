@@ -8,7 +8,7 @@ import fetchJson from './helpers/fetch-json.js'
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const f_fabrique_art_objects = apiUrl + 'fabrique_art_objects'
 let imageArray = []
-let imagesOnLoad = 15;
+let imagesOnLoad = 20;
 
 // Maak een nieuwe express app aan
 const app = express()
