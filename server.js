@@ -84,17 +84,15 @@ app.post('/', function (request, response) {
     // Check of post is gemaakt door form type 2
     } else {
         console.log("POST met:" + formType)
-        fetchJson(f_fabrique_art_objects).then((arts) => {
+        fetchJson(f_fabrique_art_objects + '?fields=*,techniques.*').then((arts) => {
             // Check of de search input leeg is
             if (searchBox == null || searchBox == "") {
                 console.log("Search input is leeg")
-
-                const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
-                response.render('index', { arts: selectedArts, images: imageArray })
+                response.redirect('/')
             // Search input is niet leeg
             }else {
                 //Check of search input tekst bevat dat overeenkomt met image slug
-                const selectedArts = arts.data.filter(art => art.slug.includes(searchBox))
+                const selectedArts = arts.data.filter(art => art.slug && art.slug.includes(searchBox) && imageArray.includes(art.id))
 
                 selectedArts.forEach(art => {
                     console.log("Match gevonden:", art.slug)
