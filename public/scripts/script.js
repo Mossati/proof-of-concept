@@ -61,11 +61,11 @@ btnSubmit.classList.add('hidden');
 // ============================================
 // Search button client-side
 // ============================================
-const btnSearch = document.querySelector('.btn-search');
-btnSearch.addEventListener("click", function(){
-    console.log("zoek");
-    canvasFilter();
-})
+// const btnSearch = document.querySelector('.btn-search');
+// btnSearch.addEventListener("click", function(){
+//     console.log("zoek");
+//     canvasFilter();
+// })
 // ============================================
 // Canvas list scroll
 // ============================================
